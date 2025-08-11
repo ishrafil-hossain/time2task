@@ -1,0 +1,45 @@
+{
+    "apps": [
+      {
+        "id": 1,
+        "name": "Figma",
+        "icon": "figma",
+        "project": "Time To Task",
+        "assignees": ["https://github.com/shadcn.png", "https://github.com/shadcn.png"],
+        "timeSpent": "0.23.54",
+        "expanded": true
+      },
+      {
+        "id": 2,
+        "name": "Visual Studio",
+        "icon": "visualstudio",
+        "project": "Time To Task",
+        "assignees": ["https://github.com/shadcn.png", "https://github.com/shadcn.png", "https://github.com/shadcn.png", "https://github.com/shadcn.png"],
+        "timeSpent": "2.03.43",
+        "expanded": false
+      }
+    ],
+    "urls": [
+      {
+        "id": 1,
+        "name": "www.figmacommunity.com",
+        "icon": "figma",
+        "project": "Time To Task",
+        "assignees": ["https://github.com/shadcn.png"],
+        "timeSpent": "0.23.54",
+        "expanded": true,
+        "url": "https://www.figmacommunity.com"
+      },
+      {
+        "id": 2,
+        "name": "w3school.com/java-scripts",
+        "icon": "w3c",
+        "project": "Time To Task",
+        "assignees": ["https://github.com/shadcn.png", "https://github.com/shadcn.png", "https://github.com/shadcn.png", "https://github.com/shadcn.png"],
+        "timeSpent": "2.03.43",
+        "expanded": false,
+        "url": "https://www.w3school.com/java-scripts"
+      }
+    ]
+  }
+  
