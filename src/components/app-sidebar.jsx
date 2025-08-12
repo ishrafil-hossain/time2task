@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   AudioWaveform,
   BarChartIcon,
@@ -27,7 +26,7 @@ import { NavActivities } from "./nav-activities";
 import { NavUser } from "./nav-user";
 import { SidebarSeparator, useSidebar } from "./ui/sidebar";
 import { NavProject } from "./nav-project";
-import { useLocation } from "react-router";
+// import { useLocation } from "react-router";
 
 // This is sample data.
 const data = {
@@ -223,7 +222,7 @@ const data = {
   ],
   tasks: [
     {
-      name: "task",
+      name: "Task",
       url: "/task",
       icon: ListTodo,
     },
@@ -232,8 +231,8 @@ const data = {
 
 export function AppSidebar({ ...props }) {
   const { state } = useSidebar();
-  const location = useLocation();
-  const isAuthPage = location.pathname === "/auth/login";
+  // const location = useLocation();
+  // const isAuthPage = location.pathname === "/auth/login";
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader className="flex items-center justify-between w-full px-4 py-4">
@@ -263,6 +262,7 @@ export function AppSidebar({ ...props }) {
       <SidebarSeparator className=" !bg-white" />
       <SidebarContent>
         <NavDashboard items={data.Dashboard} />
+        <NavProject items={data.tasks} />
         <NavActivities items={data.Activities} />
         <NavMain items={data.TimeSheet} />
         <NavMain items={data.Reports} />
@@ -270,7 +270,6 @@ export function AppSidebar({ ...props }) {
         <NavMain items={data.Work_Planner} />
         {/* <SidebarSeparator className="" /> */}
         <NavProject items={data.Projects} />
-        <NavProject items={data.tasks} />
         <NavUser items={data.Users} />
         <NavMain items={data.Organization} />
         <NavMain items={data.Settings} />
