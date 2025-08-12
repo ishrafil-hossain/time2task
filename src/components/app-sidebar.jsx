@@ -15,12 +15,7 @@ import {
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarHeader,
-  SidebarRail,
-} from "@/components/ui/sidebar";
+import { Sidebar, SidebarContent, SidebarHeader, SidebarRail } from "@/components/ui/sidebar";
 import { NavDashboard } from "./nav-dashboard";
 import { NavActivities } from "./nav-activities";
 import { NavUser } from "./nav-user";
@@ -52,6 +47,38 @@ const data = {
       plan: "Free",
     },
   ],
+  Dashboard: [
+    {
+      name: "Dashboard",
+      url: "/dashboard",
+      icon: Frame,
+    },
+  ],
+  MyTasks: [
+    {
+      name: "My Task",
+      url: "/task",
+      icon: ListTodo,
+    },
+  ],
+  Activities: [
+    {
+      title: "Activities",
+      url: "/activity",
+      icon: Bot,
+      isActive: false,
+      items: [
+        {
+          title: "Screenshot",
+          url: "/activity/screenshot",
+        },
+        {
+          title: "App & Url",
+          url: "/activity/app-url",
+        },
+      ],
+    },
+  ],
   TimeSheet: [
     {
       title: "TimeSheet",
@@ -78,7 +105,29 @@ const data = {
       ],
     },
   ],
-  Work_Planner: [
+  Reports: [
+    {
+      title: "Reports",
+      url: "/report",
+      icon: BarChartIcon,
+      isActive: false,
+      items: [
+        {
+          title: "Time & Activity",
+          url: "/report/time-activity",
+        },
+        {
+          title: "Payroll",
+          url: "/report/payroll",
+        },
+        {
+          title: "CDMS",
+          url: "/report/cdms",
+        },
+      ],
+    },
+  ],
+  WorkPlanner: [
     {
       title: "Work Planner",
       url: "#",
@@ -108,26 +157,11 @@ const data = {
       ],
     },
   ],
-  Reports: [
+  Projects: [
     {
-      title: "Reports",
-      url: "/report",
-      icon: BarChartIcon,
-      isActive: false,
-      items: [
-        {
-          title: "Time & Activity",
-          url: "/report/time-activity",
-        },
-        {
-          title: "Payroll",
-          url: "/report/payroll",
-        },
-        {
-          title: "CDMS",
-          url: "/report/cdms",
-        },
-      ],
+      name: "Projects",
+      url: "/project",
+      icon: FolderIcon,
     },
   ],
   Users: [
@@ -146,38 +180,6 @@ const data = {
           url: "/user/client",
         },
       ],
-    },
-  ],
-  Dashboard: [
-    {
-      name: "Dashboard",
-      url: "/dashboard",
-      icon: Frame,
-    },
-  ],
-  Activities: [
-    {
-      title: "Activities",
-      url: "/activity",
-      icon: Bot,
-      isActive: false,
-      items: [
-        {
-          title: "Screenshot",
-          url: "/activity/screenshot",
-        },
-        {
-          title: "App & Url",
-          url: "/activity/app-url",
-        },
-      ],
-    },
-  ],
-  Projects: [
-    {
-      name: "Projects",
-      url: "/project",
-      icon: FolderIcon,
     },
   ],
   Organization: [
@@ -220,13 +222,6 @@ const data = {
       ],
     },
   ],
-  tasks: [
-    {
-      name: "Task",
-      url: "/task",
-      icon: ListTodo,
-    },
-  ],
 };
 
 export function AppSidebar({ ...props }) {
@@ -239,36 +234,30 @@ export function AppSidebar({ ...props }) {
         {/* <TeamSwitcher teams={data.teams} /> */}
         <div className="flex items-center justify-between w-full">
           {state !== "collapsed" ? (
-            <img className=" w-[120px] " src="/time2task.png" alt="" />
+            <img className=" w-[120px] " src="/time2task_logo.png" alt="" />
           ) : (
-            <img
-              className=" w-[20px] "
-              src="/Time2Task_small_Logo.png"
-              alt=""
-            />
+            <img className=" w-[20px] " src="/Time2Task_small_Logo.png" alt="" />
           )}
 
           {state !== "collapsed" && (
             <div className="flex items-center gap-1">
               <button className="w-9 h-9 p-2.5 bg-primary_color rounded-md inline-flex justify-center items-center gap-2.5">
-                <p className="justify-start text-white text-sm font-semibold leading-tight">
-                  FS
-                </p>
+                <p className="justify-start text-white text-sm font-semibold leading-tight">FS</p>
               </button>
             </div>
           )}
         </div>
       </SidebarHeader>
+
       <SidebarSeparator className=" !bg-white" />
+
       <SidebarContent>
         <NavDashboard items={data.Dashboard} />
-        <NavProject items={data.tasks} />
+        <NavProject items={data.MyTasks} />
         <NavActivities items={data.Activities} />
         <NavMain items={data.TimeSheet} />
         <NavMain items={data.Reports} />
-
-        <NavMain items={data.Work_Planner} />
-        {/* <SidebarSeparator className="" /> */}
+        <NavMain items={data.WorkPlanner} />
         <NavProject items={data.Projects} />
         <NavUser items={data.Users} />
         <NavMain items={data.Organization} />

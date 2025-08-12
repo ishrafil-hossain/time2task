@@ -24,7 +24,6 @@ const Tasks = () => {
   ];
   const {
     data: Alltasks,
-    isLoading,
     refetch,
   } = useGetAllTaskQuery({
     page: currentPage,
@@ -81,7 +80,7 @@ const Tasks = () => {
   const { total_pages, total_records } = Alltasks?.data?.meta || {};
 
   return (
-    <div className="container mx-auto p-4 bg-white ">
+    <div className="container mx-auto p-4 bg-white">
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-800">Task</h1>
 
