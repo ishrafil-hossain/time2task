@@ -6,6 +6,7 @@ import { useGetProjectsByMemberQuery } from "../../redux/features/project/projec
 import TaskFIlter from "../../components/TaskComp/TaskFIlter";
 import { Header } from "../../components/TaskComp/components/Header";
 import { useGetSearchMembersQuery } from "../../redux/features/member/memberApi";
+import EditableTable from "../../components/TaskComp/EditableTable";
 
 const Tasks = () => {
   const { data: profile } = useGetProfileQuery();
@@ -17,11 +18,13 @@ const Tasks = () => {
   const [selectedProject, setSelectedProject] = useState("");
   const [selectedUser, setSelectedUser] = useState("");
   const [tasks, setTasks] = useState([]);
+
   const todoList = [
     { name: "Todo", value: "pending" },
     { name: "Complete", value: "completed" },
     { name: "In Progress", value: "in_progress" },
   ];
+
   const {
     data: Alltasks,
     refetch,
@@ -33,6 +36,7 @@ const Tasks = () => {
     project_id: selectedProject,
     status: selectedTodo,
   });
+
   const { data: projectData } = useGetProjectsByMemberQuery({
     page: 1,
     limit: 1000,
@@ -45,8 +49,6 @@ const Tasks = () => {
     limit: 1000,
     project_id: selectedProject,
   });
-
-
 
   useEffect(() => {
     if (profile?.id) {
@@ -106,6 +108,10 @@ const Tasks = () => {
             members={users}
             onTaskUpdate={handleTaskUpdate}
           />
+        </div>
+
+        <div>
+          <EditableTable/>
         </div>
       </div>
     </div>

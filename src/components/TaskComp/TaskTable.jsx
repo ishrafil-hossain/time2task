@@ -187,7 +187,7 @@ export default function TaskTable({
 
       {activeTab === "table" ? (
         <>
-          <TableView
+          {/* <TableView
             tasks={tasks}
             showTaskForm={showTaskForm}
             newTask={newTask}
@@ -195,15 +195,15 @@ export default function TaskTable({
             setShowTaskForm={setShowTaskForm}
             getImpactColor={getImpactColor}
             setEditTask={setEditTask}
-          />
-          <Pagination
+          /> */}
+          {/* <Pagination
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             totalPages={totalPages}
             totalRecords={totalRecords}
             pageSize={pageSize}
             setPageSize={setPageSize}
-          />
+          /> */}
         </>
       ) : (
         <BoardView
